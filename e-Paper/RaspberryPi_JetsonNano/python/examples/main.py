@@ -41,8 +41,8 @@ display_start_line = 0
 font24 = ImageFont.truetype('Courier Prime.ttf', 18) #24
 textWidth=16
 linespacing = 22
-chars_per_line = 32 #28
-lines_on_screen = 12
+chars_per_line = 64 #28
+lines_on_screen = 15
 last_display_update = time.time()
 
 #display related
@@ -102,7 +102,7 @@ def update_display():
     global scrollindex
     
     # Clear the main display area -- also clears input line (270-300)
-    display_draw.rectangle((0, 0, 400, 300), fill=255)
+    display_draw.rectangle((0, 0, epd.width, epd.height), fill=255)
     
     # Display the previous lines
     y_position = 270 - linespacing  # leaves room for cursor input
@@ -139,7 +139,7 @@ def update_input_area(): #this updates the input area of the typewriter (active 
     global updating_input_area
 
     cursor_index = cursor_position
-    display_draw.rectangle((0, 270, 400, 300), fill=255)  # Clear display
+    display_draw.rectangle((0, 270, epd.width, epd.height), fill=255)  # Clear display
     
     #add cursor
     temp_content = input_content[:cursor_index] + "|" + input_content[cursor_index:]
@@ -259,7 +259,7 @@ def handle_key_press(e):
     #powerdown - could add an autosleep if you want to save battery
     if e.name == "esc" and control_active: #ctrl+esc
         #run powerdown script
-        display_draw.rectangle((0, 0, 400, 300), fill=255)  # Clear display
+        display_draw.rectangle((0, 0, epd.width, epd.height), fill=255)  # Clear display
         display_draw.text((55, 150), "ZeroWriter Powered Down.", font=font24, fill=0)
         partial_buffer = epd.getbuffer(display_image)
         epd.display(partial_buffer)
@@ -373,7 +373,7 @@ signal.signal(signal.SIGINT, handle_interrupt)
 epd.init()
 epd.Clear
 previous_lines = load_previous_lines(file_path)#('previous_lines.txt')
-epd.init_Fast()
+epd.init()
 epd.Clear
 needs_display_update = True
 needs_input_update = False
