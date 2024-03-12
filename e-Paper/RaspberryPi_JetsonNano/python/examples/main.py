@@ -18,7 +18,7 @@ import time
 import keyboard
 import keymaps
 from PIL import Image, ImageDraw, ImageFont
-from waveshare_epd import new4in2part
+from waveshare_epd import epd4in26
 import textwrap
 import subprocess
 import signal
@@ -28,7 +28,7 @@ from pathlib import Path
 
 # Initialize the e-Paper display
 # clear refreshes whole screen, should be done on slow init()
-epd = new4in2part.EPD()
+epd = epd4in26.EPD()
 epd.init()
 epd.Clear()
 
