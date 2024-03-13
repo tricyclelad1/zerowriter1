@@ -40,7 +40,7 @@ display_draw = ImageDraw.Draw(display_image)
 display_start_line = 0
 font24 = ImageFont.truetype('Courier Prime.ttf', 36) #24
 textWidth=16
-linespacing = 22
+linespacing = 30 
 chars_per_line = 32 #28
 lines_on_screen = 15
 last_display_update = time.time()
@@ -373,7 +373,7 @@ signal.signal(signal.SIGINT, handle_interrupt)
 epd.init()
 epd.Clear
 previous_lines = load_previous_lines(file_path)#('previous_lines.txt')
-epd.init_Fast()
+epd.init()
 epd.Clear
 needs_display_update = True
 needs_input_update = False
