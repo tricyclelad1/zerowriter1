@@ -144,7 +144,7 @@ class ZeroWriter:
         self.chars_per_line = 32
         self.lines_on_screen = 12
         self.font_size = 36
-        self.line_spacing = 22
+        self.line_spacing = 36
         self.scrollindex = 1
         self.console_message = ""
         self.console_msg_time = 0
