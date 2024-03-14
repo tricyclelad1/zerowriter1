@@ -57,7 +57,7 @@ class Menu:
 
     def display(self):
 
-        self.display_draw.rectangle((0, 0, 400, 300), fill=255)
+        self.display_draw.rectangle((0, 0, 800, 480), fill=255)
         y_position = 10
         
         start_index = max(0, self.selected_item - 5)  # Start index for display
@@ -96,7 +96,7 @@ class Menu:
         return
 
     def partial_update(self):
-        self.display_draw.rectangle((0, 270, 400, 300), fill=255)  # Clear display
+        self.display_draw.rectangle((0, 270, 800, 480), fill=255)  # Clear display
         temp_content = self.inputlabel + ": " + self.input_content + self.ending_content
         # Draw input line text
         self.display_draw.text((10, 270), str(temp_content), font=font24, fill=0)        
@@ -118,14 +118,14 @@ class Menu:
 
     def consolemsg(self, text):
         time.sleep(delay)
-        self.display_draw.rectangle((0, 0, 400, 300), fill=255)  # Clear display
+        self.display_draw.rectangle((0, 0, 800, 480), fill=255)  # Clear display
         temp_content = text
         # Draw input line text
         self.display_draw.text((0, 150), str(temp_content), font=font24, fill=0)        
         partial_buffer = self.epd.getbuffer(self.display_image)
         self.epd.display_Partial(partial_buffer)
         time.sleep(2)
-        self.display_draw.rectangle((0, 0, 400, 300), fill=255)  # Clear display
+        self.display_draw.rectangle((0, 0, 800, 480), fill=255)  # Clear display
         partial_buffer = self.epd.getbuffer(self.display_image)
         self.epd.display_Partial(partial_buffer)
         time.sleep(delay)
