@@ -163,7 +163,7 @@ class ZeroWriter:
         self.epd.init()
         self.epd.Clear()
         time.sleep(.5)
-        self.epd.init_Fast()
+        self.epd.init()
         self.epd.Clear()
         self.display_image = Image.new('1', (self.epd.width, self.epd.height), 255)
         self.display_draw = ImageDraw.Draw(self.display_image)
@@ -646,7 +646,7 @@ class ZeroWriter:
                 self.epd.init()
                 self.epd.Clear()
                 time.sleep(1)
-                self.epd.init_Fast()
+                self.epd.init()
                 self.epd.Clear()
                 self.menu.display()
             return
@@ -683,7 +683,7 @@ class ZeroWriter:
             self.epd.init()
             self.epd.Clear()
             time.sleep(1)
-            self.epd.init_Fast()
+            self.epd.init()
             self.epd.Clear()
             self.needs_display_update = True
             
