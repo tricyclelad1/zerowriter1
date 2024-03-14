@@ -19,7 +19,7 @@ import keyboard
 import keymaps
 from PIL import Image, ImageDraw, ImageFont
 #from waveshare_epd import epd4in2_V2
-from waveshare_epd import new4in2part
+from waveshare_epd import epd4in26
 from zerowriter import ZeroWriter
 
 
@@ -27,7 +27,7 @@ from zerowriter import ZeroWriter
 zero_writer = ZeroWriter()
 
 try:
-  zero_writer.epd = new4in2part.EPD()
+  zero_writer.epd = epd4in26.EPD()
   zero_writer.keyboard = keyboard
   zero_writer.initialize()
   zero_writer.run()
